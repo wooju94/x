@@ -1,7 +1,7 @@
 import * as postRepository from "../data/auth.mjs"
 
 export async function signup(req,res,next){
-    const {userid, password,name, emil} = erq.body
+    const {userid, password, name, email} = req.body
     const users = await authReopsitory.creatUser(userid,password,name,emil)
     if(users){
         res.status(201).json(users)
