@@ -1,8 +1,19 @@
+import session from "express-session"
 import express from "express"
 import postRouter from "./router/posts.mjs"
 import authRouter from "./router/auth.mjs"
 
 const app = express()
+
+app.use(
+    session({
+      secret: "!@#$%^&*()",
+      resave: false,
+      saveUninitialized: false,
+      cookie: { secure: false },
+    })
+  );
+
 
 app.use(express.json())
 
@@ -13,7 +24,14 @@ app.use((req,res,next)=>{
     res.sendStatus(404)
 })
 
+
+
+
 app.listen(8080)
+
+
+
+
 
 
 
