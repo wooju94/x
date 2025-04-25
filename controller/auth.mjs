@@ -42,4 +42,4 @@ export async function logout(req,res){
     req.session.destroy(()=>{
         res.send("로그아웃 되었습니다.")
     })
-}
+};

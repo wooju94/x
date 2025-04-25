@@ -13,4 +13,4 @@ router.post("/login", authController.login)
 // 로그인 유지
 
 router.get("/me",authController.me)
-router.get("/logout",authController.logout)
+router.get("/logout",authController.logout);
