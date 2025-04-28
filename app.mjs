@@ -1,6 +1,7 @@
 import express from "express";
 import postsRouter from "./router/posts.mjs";
 import authRouter from "./router/auth.mjs";
+import { config } from "npm";
 
 const app = express();
 
@@ -12,6 +13,4 @@ app.use((req, res, next) => {
   res.sendStatus(404);
 });
 
-app.listen(8080,()=>{
-    console.log('실행중')
-});
+app.listen(config.host.port)

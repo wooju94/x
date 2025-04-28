@@ -1,9 +1,12 @@
 import * as authRepository from "../data/auth.mjs";
 import * as bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-const secretKey = "abcdefg1234%^&*";
-const bcryptSaltRounds = 10;
-const jwtExpiresInDays = "2d";
+import { config } from "../config.mjs";
+
+const secretKey = config.jwt.secretKey;
+const bcryptSaltRounds = config.bcrypt.bcryptSaltRounds
+const jwtExpiresInDays = config.jwt.expiresInSec
+
 async function createJwtToken(id) {
   return jwt.sign({ id }, secretKey, { expiresIn: jwtExpiresInDays });
 }
