@@ -1,19 +1,17 @@
-import express from "express"
-import postRouter from "./router/posts.mjs"
-import authRouter from "./router/auth.mjs"
+import express from "express";
+import postsRouter from "./router/posts.mjs";
+import authRouter from "./router/auth.mjs";
 
-const app = express()
+const app = express();
 
-app.use(express.json())
+app.use(express.json());
+app.use("/posts", postsRouter);
+app.use("/auth", authRouter);
 
-app.use("/posts", postRouter)
-app.use("/auth", authRouter)
+app.use((req, res, next) => {
+  res.sendStatus(404);
+});
 
-app.use((req,res,next)=>{
-    res.sendStatus(404)
-})
-
-app.listen(8080)
-
-
-
+app.listen(8080,()=>{
+    console.log('실행중')
+});
