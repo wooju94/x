@@ -7,7 +7,7 @@ const jwtExpiresInDays = "2d";
 async function createJwtToken(id) {
   return jwt.sign({ id }, secretKey, { expiresIn: jwtExpiresInDays });
 }
-/*
+/* 
 // 회원가입
 export async function SignUp(req, res, next) {
   const { userid, password, name, email } = req.body;

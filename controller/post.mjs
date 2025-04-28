@@ -42,7 +42,7 @@ export async function updatePost(req, res, next) {
     res.status(200).json(post);
   }
   next();
-}
+} 
 
 // 포스트 삭제하는 함수
 export async function deletePost(req, res, next) {
