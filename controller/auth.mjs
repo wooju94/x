@@ -1,7 +1,8 @@
+// 
 import * as authRepository from "../data/auth.mjs";
 import * as bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { config } from "../config.mjs";
+import { config } from "../config.mjs"; 
 
 const secretKey = config.jwt.secretKey;
 const bcryptSaltRounds = config.bcrypt.bcryptSaltRounds
@@ -10,9 +11,9 @@ const jwtExpiresInDays = config.jwt.expiresInSec
 async function createJwtToken(id) {
   return jwt.sign({ id }, secretKey, { expiresIn: jwtExpiresInDays });
 }
-/* 
+ 
 // 회원가입
-export async function SignUp(req, res, next) {
+export async function Signup(req, res, next) {
   const { userid, password, name, email } = req.body;
   const data = await authRepository.create(userid, password, name, email);
   res.status(200).json(data);
@@ -27,8 +28,8 @@ export async function Login(req, res, next) {
     res.status(200).json(login);
   }
 }
-*/
-export async function signup(req, res, next) {
+
+export async function Signup(req, res, next) {
   const { userid, password, name, email } = req.body;
   // 회원 중복 체크
   const found = await authRepository.findByUserid(userid);

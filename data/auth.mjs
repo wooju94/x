@@ -1,8 +1,8 @@
-// 사용자
+// 회원 명단을 적어놓은 수첩
 let users = [
     {
       id: "1",
-      userid: "apple",
+      userid: "apple", 
       password: "1111",
       name: "김사과",
       email: "apple@apple.com",

@@ -1,7 +1,8 @@
+//서버 시작파일
 import express from "express";
 import postsRouter from "./router/posts.mjs";
 import authRouter from "./router/auth.mjs";
-import { config } from "npm";
+import { config } from "./config.mjs";
 
 const app = express();
 
