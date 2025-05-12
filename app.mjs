@@ -3,6 +3,7 @@ import express from "express";
 import postsRouter from "./router/posts.mjs";
 import authRouter from "./router/auth.mjs";
 import { config } from "./config.mjs";
+import { connectDB } from "./db/database.mjs";
 
 const app = express();
 

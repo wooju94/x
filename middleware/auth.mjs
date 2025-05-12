@@ -3,8 +3,10 @@
 import jwt from "jsonwebtoken";
 import * as authRepository from "../data/auth.mjs";
 import {config} from "../config.mjs"
+
 const AUTH_ERROR = { message: "인증에러" };
-export const isAuth = async (req, res, next) => { // 토큰을 주었는가?
+export const isAuth = async (req, res, next) => { 
+ 
   const authHeader = req.get("Authorization");
   console.log(authHeader);
 
