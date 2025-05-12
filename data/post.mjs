@@ -4,15 +4,11 @@ import { useVirtualId } from "../db/database.mjs";
 import { ReturnDocument } from "mongodb";
 const postSchema = new Mongoose.Schema(
   {
-
     userid: { type: String, require: true },
     name: { type: String, require: true },
     url: String,
     text: { type: String, require: true },
     userId: { type: String, require: true },
-
-   
-
   },
   { timestamps: true }
 );

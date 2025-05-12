@@ -26,4 +26,3 @@ export async function findByUserid(userid) {
 export async function findByid(id) {
   return User.findById(id)
 }
-
