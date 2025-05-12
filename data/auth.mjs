@@ -11,18 +11,18 @@ const userSchema = new Mongoose.Schema(
      },
   {versionKey :false}
 )
-useVirtualId(userSchema)
+useVirtualId(userSchema);
 
-const User = Mongoose.model("User",userSchema)
+const User = Mongoose.model("User", userSchema);
 
 export async function createUser(user) {
-  return new User(user).save().then((data)=>data.id)
+  return new User(user).save().then((data) => data.id);
 }
-
 
 export async function findByUserid(userid) {
-  return User.findOne({userid})
+  return User.findOne({ userid });
 }
+
 export async function findByid(id) {
-  return User.findById(id)
+  return User.findById(id);
 }

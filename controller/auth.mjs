@@ -11,10 +11,8 @@ const jwtExpiresInDays = config.jwt.expiresInSec;
 async function createJwtToken(id) {
   return jwt.sign({ id }, secretKey, { expiresIn: jwtExpiresInDays });
 }
-
 export async function signup(req, res, next) {
   const { userid, password, name, email, url } = req.body;
-
   // 회원 중복 체크
   const found = await authRepository.findByUserid(userid);
   if (found) {
