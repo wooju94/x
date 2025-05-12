@@ -17,6 +17,8 @@
     "express-validator": "^7.2.1",
     "install": "^0.13.0",
     "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.16.0",
+    "mongoose": "^8.14.2",
     "nodemon": "^3.1.10",
     "npm": "^11.3.0"
   }

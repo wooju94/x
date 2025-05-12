@@ -6,7 +6,9 @@ import { config } from "../config.mjs";
 
 const AUTH_ERROR = { message: "인증에러" };
 
-export const isAuth = async (req, res, next) => { 
+export const isAuth = async (req, res, next) => {
+  
+
   // 토큰을 주었는가?
   const authHeader = req.get("Authorization");
   console.log("Authorization Header:", authHeader);
@@ -34,12 +36,10 @@ export const isAuth = async (req, res, next) => {
       console.log("아이디 없음");
       return res.status(401).json(AUTH_ERROR);
     }
+    console.log("user.id: ", user.id);
+    console.log("user.userid :", user.userid);
+    req.id = user.id;
+    next();
 
-    console.log("user.id:", user.id);
-    console.log("user.userid:", user.userid);
-
-    req.id = user.id;        // 요청 객체에 사용자 ID 저장
-    req.token = token;       // 필요 시 토큰도 저장
-    next();                  // 다음 미들웨어 또는 라우터로 이동
   });
 };

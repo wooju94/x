@@ -15,4 +15,7 @@ app.use((req, res, next) => {
   res.sendStatus(404);
 });
 
-app.listen(config.host.port)
+connectDB().then(()=>{
+  app.listen(config.host.port)
+})
+.catch(console.error)
