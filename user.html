@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>회원가입 / 로그인</title>
+  <style>
+    .hidden { display: none; }
+    .tab-button {
+      padding: 10px 20px;
+      margin-right: 5px;
+      background: #ddd;
+      border: none;
+      cursor: pointer;
+    }
+    .tab-button.active {
+      background: #333;
+      color: white;
+    }
+    input {
+      margin: 4px 0;
+      padding: 6px;
+    }
+  </style>
+</head>
+<body>
+  <h1>로그인 / 회원가입</h1>
+
+  <!-- 탭 버튼 -->
+  <div>
+    <button id="loginTab" class="tab-button active">로그인</button>
+    <button id="signupTab" class="tab-button">회원가입</button>
+  </div>
+
+  <!-- 로그인 폼 -->
+  <div id="loginForm">
+    <h2>로그인</h2>
+    <input type="text" id="login_userid" placeholder="아이디"><br>
+    <input type="password" id="login_password" placeholder="비밀번호"><br>
+    <button onclick="Login(event)">로그인</button>
+  </div>
+
+  <!-- 회원가입 폼 -->
+  <div id="signupForm" class="hidden">
+    <h2>회원가입</h2>
+    <input type="text" id="signup_userid" placeholder="아이디"><br>
+    <input type="password" id="signup_password" placeholder="비밀번호"><br>
+    <input type="text" id="name" placeholder="이름"><br>
+    <input type="email" id="email" placeholder="이메일"><br>
+    <button onclick="SignUp(event)">가입하기</button>
+  </div>
+
+  <div id="result" style="margin-top: 20px;"></div>
+
+  <!-- 외부 스크립트 연결 -->
+  <script src="./script.js"></script>
+</body>
+</html>

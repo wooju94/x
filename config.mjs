@@ -7,7 +7,7 @@ function required(key, defaultValue = undefined) {
   }
   return value;
 }
-export const config = {
+export const config = { 
   jwt: {
     secretKey: required("JWT_SECRET"),
     expiresInSec: parseInt(required("JWT_EXPIRES_SEC", 86400)),

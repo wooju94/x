@@ -5,7 +5,7 @@ import { body } from "express-validator";
 import { validate } from "../middleware/validator.mjs";
 import { isAuth } from "../middleware/auth.mjs";
 
-const router = express.Router();
+const router = express.Router(); 
 
 const validatePost = [
   body("text").trim().isLength({ min: 5 }).withMessage("최소 5자 이상 입력"),

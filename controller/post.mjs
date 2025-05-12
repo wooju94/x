@@ -23,7 +23,7 @@ const post = Mongoose.model("post",postSchema)
 
 // 모든 포스트 / 해당 아이디에 대한 포스트를 가져오는 함수
 // query : key=value값
-// 예시) /post?userid=apple --> q:apple
+// 예시) /post?userid=apple --> q:apple 
 export async function getPosts(req, res, next) {
   const userid = req.query.userid;
   const data = await (userid
