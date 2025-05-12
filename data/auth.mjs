@@ -1,16 +1,14 @@
-import Mongoose from "mongoose";
-import { useVirtualId } from "../db/database.mjs";
-
 const userSchema = new Mongoose.Schema(
   {
-    userid : {type: String, require : true},
-    name : {type: String, require : true},
-    email : {type: String, require : true},
-    password : {type: String, require : true},
-    url : String
-     },
-  {versionKey :false}
-)
+    userid: { type: String, required: true },
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    password: { type: String, required: true },
+    url: String
+  },
+  { versionKey: false }
+);
+
 useVirtualId(userSchema);
 
 const User = Mongoose.model("User", userSchema);
