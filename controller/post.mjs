@@ -1,4 +1,25 @@
+import Mongoose from "mongoose";
 import * as postRepository from "../data/post.mjs";
+import { text } from "express";
+import { useVirtualId } from "../db/database.mjs";
+
+const postSchema = new Mongoose.Schema({
+
+  userid  : {type : String, require : true},
+  name: {type : String, require : true},
+  url : String,
+  text: {type : String, require : true},
+  userId: {type : String,require:true},
+
+},
+{timestamps : true}
+)
+
+useVirtualId(postSchema)
+
+const post = Mongoose.model("post",postSchema)
+
+
 
 // 모든 포스트 / 해당 아이디에 대한 포스트를 가져오는 함수
 // query : key=value값
@@ -39,7 +60,7 @@ export async function updatePost(req, res, next) {
   if(!post){
     return res.status(404).json({message: `${id}의 포스트가 없습니다.`})
   }
-  if(post.useridx !== req.id){
+  if(post.userId !== req.id){
     return res.sendStatus(403)
   }
     const updated = await postRepository.update(id,text)
@@ -53,9 +74,9 @@ export async function deletePost(req, res, next) {
   if(!post){
     return res.status(404).json({message: `${id}의 포스트가 없습니다.`})
   }
-  if(post.useridx !== req.id){
+  if(post.userId !== req.id){
     return res.sendStatus(403)
   }
-  const posts = await postRepository.remove(id);
-  res.status(200).json(posts);
+  await postRepository.remove(id);
+  res.sendStatus(204)
 }
